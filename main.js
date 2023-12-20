@@ -20,5 +20,27 @@ function isPalindromeUpdated(str) {
     return true;
 }
 
+function longestPalindromeLength(str) {
+    const len = str.length;
+    if (len === 0) return "";
+    let start = 0; 
+    let maxLength = 1;
+    for (let i = 0; i < len; i++) {
+        for (let j = i + maxLength; j < len; j++) {
+            const newStr = str.substring(i, j + 1);
+            if (isPalindromeUpdated(newStr)) {
+                if (newStr.length > maxLength) {
+                    start = i;
+                    maxLength = newStr.trim().length;
+                }
+            }
+        }
+    }
+
+    return maxLength;
+}
+
 console.log(isPalindrome("RAcecar"));
 console.log(isPalindromeUpdated("nurses run")); 
+console.log(longestPalindromeLength("asdffffgh")); 
+console.log(longestPalindromeLength("that is a nice race car"));
