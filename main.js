@@ -1,4 +1,4 @@
-function isPalindrome(str) {
+function isPalindrome(str) { //Time Complexity: O(n), Space Complexity: O(1)
     str = str.toLowerCase();
     var len = str.length;
     for (var i = 0; i < len/2; i++) {
@@ -9,7 +9,7 @@ function isPalindrome(str) {
     return true;
 }
 
-function isPalindromeUpdated(str) {
+function isPalindromeUpdated(str) { //Time Complexity: O(n), Space Complexity: O(n)
     str = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
     var len = str.length;
     for (var i = 0; i < len/2; i++) {
@@ -20,7 +20,9 @@ function isPalindromeUpdated(str) {
     return true;
 }
 
-function longestPalindromeLength(str) {
+function longestPalindromeLength(str) { //Time Complexity: O(n^3), Space Complexity: O(1)
+    //i think i can make time complexity O(n^2) by using dynamic programming, but here I focused
+    //on using isPalindromeUpdated() function.
     const len = str.length;
     if (len === 0) return "";
     let start = 0; 
